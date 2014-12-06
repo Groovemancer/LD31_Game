@@ -32,7 +32,7 @@ bool Game::Initialize()
 			// Create renderer for window
 			renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED );
 			if ( renderer == NULL )
-			{				
+			{
 				printf( "Renderer could not be created! SDL Error: %s\n", SDL_GetError() );
 				success = false;
 			}
@@ -46,7 +46,6 @@ bool Game::Initialize()
 				int imgFlags = IMG_INIT_PNG;
 				if ( !( IMG_Init( imgFlags ) & imgFlags ) )
 				{
-					OutputDebugString( "FAILED TO INITIALIZE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" );
 					printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
 					success = false;
 				}
