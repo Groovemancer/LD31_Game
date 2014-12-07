@@ -17,15 +17,8 @@
 #include "Screens\ScreenManager.h"
 #include "Screens\GameScreen.h"
 
-#include "GameWorld\Tiles\Tile.h"
-#include "GameWorld\Tiles\Tile_Dirt.h"
-#include "GameWorld\Tiles\Tile_Stone.h"
-#include "GameWorld\Tiles\Tile_StonePlatform.h"
-#include "GameWorld\Tiles\Tile_Pipe.h"
 #include "GameWorld\Level.h"
-
-#include "GameWorld\GameObjects\GameObject.h"
-#include "GameWorld\GameObjects\GameObjectManager.h"
+#include "GameWorld\Tiles\Tile.h"
 
 #include <string>
 #include <sstream>
@@ -33,7 +26,8 @@
 #include <vector>
 #include <map>
 #include <hash_map>
-#include <sstream>
+//#include <windows.h>
+//#include <stdio.h>
 
 // RELEASE: Don't forget to remove VLD!
 #include <vld.h> // Memory Leak Detector... Remove when ship

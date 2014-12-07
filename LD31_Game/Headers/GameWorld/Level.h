@@ -14,8 +14,7 @@ private:
 	int width;
 	int height;
 
-	Tile** tiles; // Drawn in the Background, before the player(s)
-	Tile** fTiles; // Drawn in the Foreground
+	Tile** tiles;
 
 	void GenerateDefaultLevel();
 
@@ -24,14 +23,8 @@ public:
 	~Level();
 	void LoadLevel( std::string path );
 
-	void ResetTiles();
-
 	Texture* GetBackgroundTexture();
 	Tile* GetTile( int x, int y );
-	Tile* GetFTile( int x, int y );
-
-	void SetTile( int x, int y, Tile* tile );
-	void SetFTile( int x, int y, Tile* tile );
 
 	int GetWidth();
 	int GetHeight();

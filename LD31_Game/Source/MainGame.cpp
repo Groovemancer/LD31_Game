@@ -56,7 +56,7 @@ void MainGame::GameLoop()
 	{
 		// Update input manager. Returns true if game is quit
 		quit = InputManager::Update();
-				
+		
 		game.screenManager.Update( delta.Get_Ticks() );
 
 		if ( InputManager::IsKeyDown( KEY_ESCAPE ) )
@@ -72,8 +72,6 @@ void MainGame::GameLoop()
 		// Renders screen
 		Render();
 	}
-
-	game.screenManager.CleanUp();
 
 	// Clean up
 	game.Clean_Up();

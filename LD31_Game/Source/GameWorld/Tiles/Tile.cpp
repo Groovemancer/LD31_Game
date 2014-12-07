@@ -10,26 +10,14 @@ Tile::Tile()
 
 	// What type of tile this is and how it interacts with the player
 	type = SOLID;
-	
-	deleted = false;
-}
 
-void Tile::Load()
-{
 	texture = new Texture();
-	texture->loadFromFile( "Resources/Textures/Tiles/Tile_Test.png" );
-	OutputDebugString( "Default\n" );
+	texture->loadFromFile( "Resources/Textures/Tiles/testTile.png" );
 }
 
 Tile::~Tile()
 {
-	if ( !deleted )
-	{
-		OutputDebugString( "Delete Tile\n" );
-		delete texture;
-
-		deleted = true;
-	}
+	delete texture;
 }
 
 SDL_Rect Tile::GetRect()

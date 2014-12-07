@@ -10,21 +10,16 @@ enum TileType
 
 class Tile
 {
-protected:
-	bool deleted;
+private:
 	Texture* texture;
 	int width;
 	int height;
 	char id;
 
 	TileType type;
-
-	bool initialized;
-	
 public:
 	Tile();
-	virtual ~Tile();
-	virtual void Load();
+	~Tile();
 
 	SDL_Rect GetRect();
 	Texture* GetTexture();

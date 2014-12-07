@@ -71,14 +71,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp" />
-    <ClCompile Include="Source\GameWorld\GameObjects\GameObject.cpp" />
-    <ClCompile Include="Source\GameWorld\GameObjects\GameObjectManager.cpp" />
     <ClCompile Include="Source\GameWorld\Level.cpp" />
     <ClCompile Include="Source\GameWorld\Tiles\Tile.cpp" />
-    <ClCompile Include="Source\GameWorld\Tiles\Tile_Dirt.cpp" />
-    <ClCompile Include="Source\GameWorld\Tiles\Tile_Pipe.cpp" />
-    <ClCompile Include="Source\GameWorld\Tiles\Tile_Stone.cpp" />
-    <ClCompile Include="Source\GameWorld\Tiles\Tile_StonePlatform.cpp" />
     <ClCompile Include="Source\Screens\GameScreen.cpp" />
     <ClCompile Include="Source\Helpers\Helpers.cpp" />
     <ClCompile Include="Source\Helpers\InputManager.cpp" />
@@ -93,14 +87,8 @@
   <ItemGroup>
     <ClInclude Include="Headers\Base.h" />
     <ClInclude Include="Headers\Game.h" />
-    <ClInclude Include="Headers\GameWorld\GameObjects\GameObject.h" />
-    <ClInclude Include="Headers\GameWorld\GameObjects\GameObjectManager.h" />
     <ClInclude Include="Headers\GameWorld\Level.h" />
     <ClInclude Include="Headers\GameWorld\Tiles\Tile.h" />
-    <ClInclude Include="Headers\GameWorld\Tiles\Tile_Dirt.h" />
-    <ClInclude Include="Headers\GameWorld\Tiles\Tile_Pipe.h" />
-    <ClInclude Include="Headers\GameWorld\Tiles\Tile_Stone.h" />
-    <ClInclude Include="Headers\GameWorld\Tiles\Tile_StonePlatform.h" />
     <ClInclude Include="Headers\Screens\GameScreen.h" />
     <ClInclude Include="Headers\Helpers\Helpers.h" />
     <ClInclude Include="Headers\Helpers\InputManager.h" />
