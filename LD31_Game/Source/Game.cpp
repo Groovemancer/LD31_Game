@@ -11,7 +11,7 @@ bool Game::Initialize()
 
 	// Initialize SDL
 	if ( SDL_Init( SDL_INIT_EVERYTHING ) < 0 )
-	{		
+	{
 		printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
 		success = false;
 	}
@@ -20,7 +20,7 @@ bool Game::Initialize()
 		// Create window
 		window = SDL_CreateWindow( "Ludum Dare #31", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
 		if ( window == NULL ) // In-case it failed to create
-		{			
+		{
 			printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
 			success = false;
 		}
@@ -46,6 +46,7 @@ bool Game::Initialize()
 				int imgFlags = IMG_INIT_PNG;
 				if ( !( IMG_Init( imgFlags ) & imgFlags ) )
 				{
+
 					printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
 					success = false;
 				}

@@ -30,6 +30,8 @@ public:
 	void Clear_Screen( SDL_Color color );
 	void Update_Screen();
 	void Set_Window_Title( std::string title );
+
+	/// Windowed = 0, Fullscreen = 1, Borderless Window = 2
 	void Set_Fullscreen( int windowState );
 	void Clean_Up();
 

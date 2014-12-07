@@ -46,5 +46,5 @@ GameObject* GameObjectManager::GetGameObject( int id )
 	if ( gameObjects.size() >= id )
 		return NULL;
 
-	if ( gameObjects[ id ] !=
+	//if ( gameObjects[ id ] !=
 }

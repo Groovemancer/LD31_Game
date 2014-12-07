@@ -9,6 +9,7 @@ bool MainGame::Initialize()
 	// Initialize
 	if ( game.Initialize() == false )
 	{
+		OutputDebugString("Game Initialize?\n");
 		return false;
 	}
 

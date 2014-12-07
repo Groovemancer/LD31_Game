@@ -49,3 +49,6 @@ Temporary Items
 Debug/
 ipch/
 *.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
