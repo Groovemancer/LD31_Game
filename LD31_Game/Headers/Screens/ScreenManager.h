@@ -7,7 +7,7 @@
 class ScreenManager
 {
 private:
-	std::stack<Screen*> screenStack;
+	std::stack< Screen* > screenStack;
 
 public:
 	void CleanUp();

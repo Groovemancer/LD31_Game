@@ -15,12 +15,15 @@ bool MainGame::Initialize()
 	// Game title goes in here
 	game.Set_Window_Title( "Ludum Dare #31" );
 
+	// Set to Windowed!
+	game.Set_Fullscreen( 0 );
+
 	// Load the files
 	if ( !LoadFiles() )
 	{
 		return false;
 	}
-
+	
 	// Start delta timer
 	delta.Start();
 
@@ -29,18 +32,21 @@ bool MainGame::Initialize()
 
 void MainGame::Quit()
 {
-	game.ScreenManager().CleanUp();
+	game.screenManager.CleanUp();
 	quit = true;
 	OutputDebugString( "Quitting...\n" );
 }
 
 bool MainGame::LoadFiles()
 {
-	// TODO: Add Game Screen
-	//game.GetScreenManager().AddScreen( new GameScreen() );
+	// Success flag
+	bool success = true;
 
+	// TODO: Add Game Screen
+	game.screenManager.AddScreen( new GameScreen() );
+	
 	// If everything loaded fine
-	return true;
+	return success;
 }
 
 void MainGame::GameLoop()
@@ -48,18 +54,21 @@ void MainGame::GameLoop()
 	// While the user hasn't quit
 	while ( !quit )
 	{
-
 		// Update input manager. Returns true if game is quit
 		quit = InputManager::Update();
 		
-		game.ScreenManager().Update( delta.Get_Ticks() );
+		game.screenManager.Update( delta.Get_Ticks() );
 
+		if ( InputManager::IsKeyDown( KEY_ESCAPE ) )
+			MainGame::Quit();
+
+		// If we quit, break, we don't want to continue rendering
 		if ( quit )
 			break;
 
 		// Restart delta timer
 		delta.Start();
-		
+
 		// Renders screen
 		Render();
 	}
@@ -76,7 +85,7 @@ void MainGame::Render()
 	game.Clear_Screen( color );
 
 	// Render the top screen
-	game.ScreenManager().Render();
+	game.screenManager.Render();
 
 	game.Update_Screen();
 }

@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F67E5004-4BC5-468F-BE9B-2E95F13BB884}</ProjectGuid>
+    <ProjectGuid>{A2FDC867-06BA-43BB-A4A1-839C89691B22}</ProjectGuid>
     <RootNamespace>LD31_Game</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -37,20 +37,21 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>X:\gamedev\libs\SDL2-2.0.3\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\gamedev\libs\SDL2-2.0.3\include;C:\Program Files %28x86%29\Visual Leak Detector\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>X:\gamedev\libs\SDL2-2.0.3\lib\x86;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\gamedev\libs\SDL2-2.0.3\lib\x86;C:\Program Files %28x86%29\Visual Leak Detector\lib\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Visual Leak Detector\include;C:\Game Development\Projects\LD31_Game\LD31_Game\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;vld.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <LinkErrorReporting>QueueForNextLogin</LinkErrorReporting>
     </Link>
@@ -69,30 +70,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Helpers.cpp" />
-    <ClCompile Include="InputManager.cpp" />
-    <ClCompile Include="MainApplication.cpp" />
-    <ClCompile Include="MainGame.cpp" />
-    <ClCompile Include="Screen.cpp" />
-    <ClCompile Include="ScreenManager.cpp" />
-    <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="Timer.cpp" />
-    <ClCompile Include="Vector2f.cpp" />
+    <ClCompile Include="Source\Game.cpp" />
+    <ClCompile Include="Source\GameWorld\Level.cpp" />
+    <ClCompile Include="Source\GameWorld\Tiles\Tile.cpp" />
+    <ClCompile Include="Source\Screens\GameScreen.cpp" />
+    <ClCompile Include="Source\Helpers\Helpers.cpp" />
+    <ClCompile Include="Source\Helpers\InputManager.cpp" />
+    <ClCompile Include="Source\MainApplication.cpp" />
+    <ClCompile Include="Source\MainGame.cpp" />
+    <ClCompile Include="Source\Screens\Screen.cpp" />
+    <ClCompile Include="Source\Screens\ScreenManager.cpp" />
+    <ClCompile Include="Source\Graphics\Texture.cpp" />
+    <ClCompile Include="Source\Helpers\Timer.cpp" />
+    <ClCompile Include="Source\Helpers\Vector2f.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Base.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Helpers.h" />
-    <ClInclude Include="InputManager.h" />
-    <ClInclude Include="Keys.h" />
-    <ClInclude Include="MainGame.h" />
-    <ClInclude Include="MouseButtons.h" />
-    <ClInclude Include="Screen.h" />
-    <ClInclude Include="ScreenManager.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="Timer.h" />
-    <ClInclude Include="Vector2f.h" />
+    <ClInclude Include="Headers\Base.h" />
+    <ClInclude Include="Headers\Game.h" />
+    <ClInclude Include="Headers\GameWorld\Level.h" />
+    <ClInclude Include="Headers\GameWorld\Tiles\Tile.h" />
+    <ClInclude Include="Headers\Screens\GameScreen.h" />
+    <ClInclude Include="Headers\Helpers\Helpers.h" />
+    <ClInclude Include="Headers\Helpers\InputManager.h" />
+    <ClInclude Include="Headers\Helpers\Keys.h" />
+    <ClInclude Include="Headers\MainGame.h" />
+    <ClInclude Include="Headers\Helpers\MouseButtons.h" />
+    <ClInclude Include="Headers\Screens\Screen.h" />
+    <ClInclude Include="Headers\Screens\ScreenManager.h" />
+    <ClInclude Include="Headers\Graphics\Texture.h" />
+    <ClInclude Include="Headers\Helpers\Timer.h" />
+    <ClInclude Include="Headers\Helpers\Vector2f.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

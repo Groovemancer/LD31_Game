@@ -2,7 +2,7 @@
 #define INC_MAINGAME_H
 
 #include "Game.h"
-#include "Timer.h"
+#include "Helpers\Timer.h"
 
 class MainGame
 {
