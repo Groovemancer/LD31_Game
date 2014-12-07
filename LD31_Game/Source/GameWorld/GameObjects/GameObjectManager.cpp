@@ -24,13 +24,14 @@ void GameObjectManager::AddGameObject( GameObject* gameObject )
 			continue;
 
 		gameObjects[ i ] = gameObject;
+		gameObject->Initialize( i );
 		inserted = true;
 	}
 
 	if ( !inserted )
 	{
 		gameObjects.push_back( gameObject );
-	
+
 		int id = gameObjects.size() - 1;
 		gameObject->Initialize( id );
 	}

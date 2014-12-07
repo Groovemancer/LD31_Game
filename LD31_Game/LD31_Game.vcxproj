@@ -74,6 +74,7 @@
     <ClCompile Include="Source\GameWorld\GameObjects\GameObject.cpp" />
     <ClCompile Include="Source\GameWorld\GameObjects\GameObjectManager.cpp" />
     <ClCompile Include="Source\GameWorld\Level.cpp" />
+    <ClCompile Include="Source\GameWorld\LevelLoad.cpp" />
     <ClCompile Include="Source\GameWorld\Tiles\Tile.cpp" />
     <ClCompile Include="Source\GameWorld\Tiles\Tile_Dirt.cpp" />
     <ClCompile Include="Source\GameWorld\Tiles\Tile_Pipe.cpp" />

@@ -50,5 +50,5 @@ Debug/
 ipch/
 *.sln
 *.vcxproj
-*.vcxproj.filters
 *.vcxproj.user
+*.opensdf

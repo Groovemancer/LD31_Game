@@ -31,6 +31,24 @@
     <Filter Include="Source Files\Screens">
       <UniqueIdentifier>{17b49b7f-a28b-4090-8ab3-e05ec00eeb97}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameWorld">
+      <UniqueIdentifier>{606331e1-5ad4-400b-9efb-3255100c930c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameWorld\GameObjects">
+      <UniqueIdentifier>{97a4c696-ca4f-4c18-b258-8e5bcec4f7f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameWorld\Tiles">
+      <UniqueIdentifier>{4accb457-c597-4698-95c6-8ee6dc51530d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameWorld">
+      <UniqueIdentifier>{7c504ad2-1500-4963-b3a0-43e7ec843cc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameWorld\GameObjects">
+      <UniqueIdentifier>{e7c4f63d-553e-423e-8da3-3bbd7d9e5e99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameWorld\Tiles">
+      <UniqueIdentifier>{16c75858-afb0-48c6-8b7b-a2029b335226}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Graphics\Texture.cpp">
@@ -67,28 +85,31 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\GameWorld\Level.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameWorld</Filter>
     </ClCompile>
-    <ClCompile Include="Source\GameWorld\Tiles\Tile.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameWorld\Tiles\Tile_Dirt.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Source\GameWorld\LevelLoad.cpp">
+      <Filter>Source Files\GameWorld</Filter>
     </ClCompile>
     <ClCompile Include="Source\GameWorld\GameObjects\GameObject.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameWorld\GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="Source\GameWorld\GameObjects\GameObjectManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameWorld\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Source\GameWorld\Tiles\Tile_Stone.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Source\GameWorld\Tiles\Tile.cpp">
+      <Filter>Source Files\GameWorld\Tiles</Filter>
     </ClCompile>
     <ClCompile Include="Source\GameWorld\Tiles\Tile_StonePlatform.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameWorld\Tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameWorld\Tiles\Tile_Dirt.cpp">
+      <Filter>Source Files\GameWorld\Tiles</Filter>
     </ClCompile>
     <ClCompile Include="Source\GameWorld\Tiles\Tile_Pipe.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameWorld\Tiles</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameWorld\Tiles\Tile_Stone.cpp">
+      <Filter>Source Files\GameWorld\Tiles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -132,28 +153,28 @@
       <Filter>Header Files\Screens</Filter>
     </ClInclude>
     <ClInclude Include="Headers\GameWorld\Level.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\GameWorld\Tiles\Tile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\GameWorld\Tiles\Tile_Dirt.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GameWorld</Filter>
     </ClInclude>
     <ClInclude Include="Headers\GameWorld\GameObjects\GameObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GameWorld\GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="Headers\GameWorld\GameObjects\GameObjectManager.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GameWorld\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\GameWorld\Tiles\Tile_Stone.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Headers\GameWorld\Tiles\Tile.h">
+      <Filter>Header Files\GameWorld\Tiles</Filter>
     </ClInclude>
     <ClInclude Include="Headers\GameWorld\Tiles\Tile_StonePlatform.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GameWorld\Tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameWorld\Tiles\Tile_Dirt.h">
+      <Filter>Header Files\GameWorld\Tiles</Filter>
     </ClInclude>
     <ClInclude Include="Headers\GameWorld\Tiles\Tile_Pipe.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GameWorld\Tiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameWorld\Tiles\Tile_Stone.h">
+      <Filter>Header Files\GameWorld\Tiles</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
