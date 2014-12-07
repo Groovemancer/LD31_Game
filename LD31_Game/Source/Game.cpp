@@ -27,7 +27,7 @@ bool Game::Initialize()
 		else
 		{			
 			// Sets the window to fullscreen, windowed, or borderless window
-			Set_Fullscreen( WINDOW_STATE );			
+			Set_Fullscreen( WINDOW_STATE );
 			
 			// Create renderer for window
 			renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED );
