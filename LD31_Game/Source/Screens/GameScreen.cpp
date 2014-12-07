@@ -24,11 +24,33 @@ void GameScreen::Render()
 {
 	Texture* backgroundTexture = level->GetBackgroundTexture();
 	backgroundTexture->render( 0, 0 );
+
+	// Render background tiles
 	for ( int y = 0; y < level->GetHeight(); y++ )
 	{
 		for ( int x = 0; x < level->GetWidth(); x++ )
 		{
 			Tile* tile = level->GetTile( x, y );
+
+			if ( tile != NULL )
+			{
+				Texture* tileTexture = tile->GetTexture();
+				if ( tileTexture != NULL )
+				{
+					tileTexture->render( offsetX + x * tile->GetWidth(), offsetY + y * tile->GetHeight() );
+				}
+			}
+		}
+	}
+
+	// TODO: Add player rendering here
+
+	// Render foreground tiles
+	for ( int y = 0; y < level->GetHeight(); y++ )
+	{
+		for ( int x = 0; x < level->GetWidth(); x++ )
+		{
+			Tile* tile = level->GetFTile( x, y );
 
 			if ( tile != NULL )
 			{

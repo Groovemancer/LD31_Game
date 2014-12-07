@@ -102,6 +102,7 @@ bool InputManager::Update()
 		switch ( event.type )
 		{
 			case SDL_QUIT:
+				MainGame::Quit();
 				return true;
 				break;
 			case SDL_KEYDOWN:
