@@ -10,19 +10,26 @@ Tile_Stone::Tile_Stone()
 	type = SOLID;
 
 	deleted = false;
+	Load();
 }
 
 void Tile_Stone::Load()
 {
-	texture = new Texture();
-	texture->loadFromFile( "Resources/Textures/Tiles/Tile_Stone.png" );
+	//texture = new Texture();
+	//texture->loadFromFile( "Resources/Textures/Tiles/Tile_Stone.png" );
+	texture = TextureManager::LoadTexture( "Tile_Stone", "Resources/Textures/Tiles/Tile_Stone.png" );
 }
 
 Tile_Stone::~Tile_Stone()
 {
 	if ( !deleted )
 	{
-		delete texture;
+		//delete texture;
 		deleted = true;
 	}
+}
+
+Texture* Tile_Stone::GetTexture()
+{
+	return Tile_Stone::texture;
 }

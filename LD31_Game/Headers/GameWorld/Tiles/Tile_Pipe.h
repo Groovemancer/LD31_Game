@@ -8,11 +8,12 @@
 class Tile_Pipe : public Tile
 {
 public:
-	const char ID = 'P';
 	Tile_Pipe();
 	~Tile_Pipe();
 
 	void Load();
+	Texture* GetTexture();
+	static char GetId() { return 'P'; }
 };
 
 #endif

@@ -10,19 +10,26 @@ Tile_Pipe::Tile_Pipe()
 	type = EMPTY;
 
 	deleted = false;
+	Load();
 }
 
 void Tile_Pipe::Load()
 {
-	texture = new Texture();
-	texture->loadFromFile( "Resources/Textures/Tiles/Tile_Pipe.png" );
+	//texture = new Texture();
+	//texture->loadFromFile( "Resources/Textures/Tiles/Tile_Pipe.png" );
+	texture = TextureManager::LoadTexture( "Tile_Pipe", "Resources/Textures/Tiles/FTile_Pipe.png" );
 }
 
 Tile_Pipe::~Tile_Pipe()
 {
 	if ( !deleted )
 	{
-		delete texture;
+		//delete texture;
 		deleted = true;
 	}
+}
+
+Texture* Tile_Pipe::GetTexture()
+{
+	return TextureManager::GetTexture( "Tile_Pipe" );
 }

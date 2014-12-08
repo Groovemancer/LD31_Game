@@ -37,17 +37,17 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\gamedev\libs\SDL2-2.0.3\include;C:\Program Files %28x86%29\Visual Leak Detector\include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\gamedev\libs\SDL2-2.0.3\include;C:\Program Files %28x86%29\Visual Leak Detector\include;X:\gamedev\libs\SDL2-2.0.3\include;X:\Program Files %28x86%29\Visual Leak Detector\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LibraryPath>C:\gamedev\libs\SDL2-2.0.3\lib\x86;C:\Program Files %28x86%29\Visual Leak Detector\lib\Win32;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\gamedev\libs\SDL2-2.0.3\lib\x86;C:\Program Files %28x86%29\Visual Leak Detector\lib\Win32;X:\gamedev\libs\SDL2-2.0.3\lib\x86;X:\Program Files %28x86%29\Visual Leak Detector\lib\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Visual Leak Detector\include;C:\Game Development\Projects\LD31_Game\LD31_Game\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Visual Leak Detector\include;C:\Game Development\Code\LD31_Game\LD31_Game\Headers;X:\Game Development\Code\LD31_Game\LD31_Game\Headers;X:\Program Files %28x86%29\Visual Leak Detector\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -80,6 +80,7 @@
     <ClCompile Include="Source\GameWorld\Tiles\Tile_Pipe.cpp" />
     <ClCompile Include="Source\GameWorld\Tiles\Tile_Stone.cpp" />
     <ClCompile Include="Source\GameWorld\Tiles\Tile_StonePlatform.cpp" />
+    <ClCompile Include="Source\Graphics\TextureManager.cpp" />
     <ClCompile Include="Source\Screens\GameScreen.cpp" />
     <ClCompile Include="Source\Helpers\Helpers.cpp" />
     <ClCompile Include="Source\Helpers\InputManager.cpp" />
@@ -102,6 +103,7 @@
     <ClInclude Include="Headers\GameWorld\Tiles\Tile_Pipe.h" />
     <ClInclude Include="Headers\GameWorld\Tiles\Tile_Stone.h" />
     <ClInclude Include="Headers\GameWorld\Tiles\Tile_StonePlatform.h" />
+    <ClInclude Include="Headers\Graphics\TextureManager.h" />
     <ClInclude Include="Headers\Screens\GameScreen.h" />
     <ClInclude Include="Headers\Helpers\Helpers.h" />
     <ClInclude Include="Headers\Helpers\InputManager.h" />
@@ -113,6 +115,16 @@
     <ClInclude Include="Headers\Graphics\Texture.h" />
     <ClInclude Include="Headers\Helpers\Timer.h" />
     <ClInclude Include="Headers\Helpers\Vector2f.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Levels\level_01.lvl" />
+    <None Include="Resources\Textures\Level01_background.png" />
+    <None Include="Resources\Textures\testBackground.png" />
+    <None Include="Resources\Textures\Tiles\FTile_Pipe.png" />
+    <None Include="Resources\Textures\Tiles\Tile_Dirt.png" />
+    <None Include="Resources\Textures\Tiles\Tile_Stone.png" />
+    <None Include="Resources\Textures\Tiles\Tile_StonePlatform.png" />
+    <None Include="Resources\Textures\Tiles\Tile_Test.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

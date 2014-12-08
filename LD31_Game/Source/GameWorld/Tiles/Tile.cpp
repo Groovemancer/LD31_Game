@@ -2,23 +2,18 @@
 
 Tile::Tile()
 {
-	id = 'x';
-
 	// Default tile size 24x24
 	width = 24;
 	height = 24;
 
 	// What type of tile this is and how it interacts with the player
-	type = SOLID;
+	type = EMPTY;
 	
 	deleted = false;
 }
 
 void Tile::Load()
 {
-	texture = new Texture();
-	texture->loadFromFile( "Resources/Textures/Tiles/Tile_Test.png" );
-	OutputDebugString( "Default\n" );
 }
 
 Tile::~Tile()
@@ -26,7 +21,7 @@ Tile::~Tile()
 	if ( !deleted )
 	{
 		OutputDebugString( "Delete Tile\n" );
-		delete texture;
+		//delete texture;
 
 		deleted = true;
 	}
@@ -40,7 +35,7 @@ SDL_Rect Tile::GetRect()
 
 Texture* Tile::GetTexture()
 {
-	return texture;
+	return NULL;
 }
 
 int Tile::GetWidth()
@@ -55,5 +50,5 @@ int Tile::GetHeight()
 
 char Tile::GetId()
 {
-	return id;
+	return '.';
 }

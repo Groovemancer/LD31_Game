@@ -33,7 +33,12 @@ bool MainGame::Initialize()
 
 void MainGame::Quit()
 {
+	OutputDebugString( "Removing all screens...\n" );
 	game.screenManager.CleanUp();
+
+	OutputDebugString( "Removing all textures...\n" );
+	TextureManager::RemoveAll();
+
 	quit = true;
 	OutputDebugString( "Quitting...\n" );
 }
@@ -42,10 +47,10 @@ bool MainGame::LoadFiles()
 {
 	// Success flag
 	bool success = true;
-
+	
 	// TODO: Add Game Screen
 	game.screenManager.AddScreen( new GameScreen() );
-	
+
 	// If everything loaded fine
 	return success;
 }

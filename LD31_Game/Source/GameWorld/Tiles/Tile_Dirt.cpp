@@ -10,19 +10,24 @@ Tile_Dirt::Tile_Dirt()
 	type = SOLID;
 
 	deleted = false;
+	Load();
 }
 
 void Tile_Dirt::Load()
 {
-	texture = new Texture();
-	texture->loadFromFile( "Resources/Textures/Tiles/Tile_Dirt.png" );
+	Tile_Dirt::texture = TextureManager::LoadTexture( "Tile_Dirt", "Resources/Textures/Tiles/Tile_Dirt.png" );
 }
 
 Tile_Dirt::~Tile_Dirt()
 {
 	if ( !deleted )
 	{
-		delete texture;
+		//delete texture;
 		deleted = true;
 	}
+}
+
+Texture* Tile_Dirt::GetTexture()
+{
+	return TextureManager::GetTexture( "Tile_Dirt" );
 }

@@ -15,7 +15,6 @@ protected:
 	Texture* texture;
 	int width;
 	int height;
-	char id;
 
 	TileType type;
 
@@ -27,10 +26,10 @@ public:
 	virtual void Load();
 
 	SDL_Rect GetRect();
-	Texture* GetTexture();
+	virtual Texture* GetTexture();
 	int GetWidth();
 	int GetHeight();
-	char GetId();
+	static char GetId();
 };
 
 #endif

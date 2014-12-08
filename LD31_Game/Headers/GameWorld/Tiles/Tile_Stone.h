@@ -8,11 +8,12 @@
 class Tile_Stone : public Tile
 {
 public:
-	const char ID = 'S';
 	Tile_Stone();
 	~Tile_Stone();
 
 	void Load();
+	Texture* GetTexture();
+	static char GetId() { return 'S'; }
 };
 
 #endif

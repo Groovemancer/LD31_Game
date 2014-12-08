@@ -1,10 +1,8 @@
 #include "Base.h"
+#include <fstream>
 
 Level::Level()
 {
-	backgroundTexture = new Texture();
-	backgroundTexture->loadFromFile( "Resources/Textures/Level01_background.png" );
-
 	width = 32;
 	height = 24;
 
@@ -13,12 +11,11 @@ Level::Level()
 
 	ResetTiles();
 
-	GenerateDefaultLevel();
+	loaded = false;
 }
 
 Level::~Level()
 {
-	delete backgroundTexture;
 	for ( int i = 0; i < width * height; i++ )
 	{
 		delete tiles[ i ];
@@ -47,35 +44,101 @@ void Level::GenerateDefaultLevel()
 			}
 		}
 	}
-	std::stringstream str;
-	str << "Tile Count: " << i << "\n";
-	OutputDebugString( str.str().c_str() );
 }
 
 void Level::LoadLevel( std::string path )
 {
-	// TODO Load File
-
-	/*
-	for ( int y = 0; y < height; y++ )
+	if ( !loaded )
 	{
-		for ( int x = 0; x < width; x++ )
+		// Load the file
+		std::string line;
+		char** lvlChars = new char*[ height ];
+		for ( int i = 0; i < height; i++ )
+			lvlChars[ i ] = new char[ width ];
+		
+		std::ifstream infile( path );
+
+		int y = 0;
+		bool getTextureId = false;
+		bool getTexture = false;
+		std::string backgroundTextureId;
+		while ( std::getline( infile, line ) )
 		{
-			char c = char_array[y][x];
-			switch ( c )
+			if ( !getTextureId )
 			{
-				case Tile_Dirt::
-				tileArray[y][x] = TILE_TYPEA
-				break;
-			case 'x':
-				tileArray[y][x] = TILE_TYPEB
-				break;
-			default:
-				break;
+				backgroundTextureId = line;
+
+				getTextureId = true;
+				continue;
+			}
+			else if ( !getTexture )
+			{
+				if ( !LoadBackgroundTexture( backgroundTextureId, line ) )
+				{
+					printf( "Error loading level: %s\n", path );
+					break;
+				}
+
+				getTexture = true;
+				continue;
+			}
+			else
+			{
+				for ( int x = 0; x < width; x++ )
+				{
+					lvlChars[ y ][ x ] = line[ x ];
+				}
+			}
+			y++;
+		}
+		infile.close();
+		
+		// Interpret character data, inserting game tiles into tile array
+		for ( y = 0; y < height; y++ )
+		{
+			for ( int x = 0; x < width; x++ )
+			{
+				char cData = lvlChars[ y ][ x ];
+				InsertCharTile( x, y, cData );
 			}
 		}
+
+		// Delete lvlChars from memory
+		for ( int i = 0; i < height; i++ )
+		{
+			// Delete inner array
+			delete [] lvlChars[ i ];
+		}
+		// Delete outer array
+		delete [] lvlChars;
 	}
-	*/
+
+	loaded = true;
+}
+
+bool Level::LoadBackgroundTexture( std::string id, std::string path )
+{
+	bool success = true;
+	backgroundTexture = TextureManager::LoadTexture( id, path );
+	if ( backgroundTexture == NULL )
+	{
+		printf( "Error loading level background texture | %s |: %s\n", id, path );
+		success = false;
+	}
+
+	return success;
+}
+
+void Level::InsertCharTile( int x, int y, char charTile )
+{
+	if ( charTile == Tile_Dirt::GetId() )
+		SetTile( x, y, new Tile_Dirt() );
+	else if ( charTile == Tile_Pipe::GetId() )
+		SetFTile( x, y, new Tile_Pipe() );
+	else if ( charTile == Tile_Stone::GetId() )
+		SetTile( x, y, new Tile_Stone() );
+	else if ( charTile == Tile_StonePlatform::GetId() )
+		SetTile( x, y, new Tile_StonePlatform() );
 }
 
 void Level::ResetTiles()

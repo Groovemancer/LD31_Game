@@ -11,7 +11,9 @@
 #include "Helpers\Helpers.h"
 #include "Helpers\Timer.h"
 #include "Helpers\Vector2f.h"
+
 #include "Graphics\Texture.h"
+#include "Graphics\TextureManager.h"
 
 #include "Screens\Screen.h"
 #include "Screens\ScreenManager.h"

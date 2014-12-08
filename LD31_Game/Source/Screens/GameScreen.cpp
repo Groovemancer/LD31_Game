@@ -7,6 +7,7 @@ GameScreen::GameScreen()
 	offsetY = 12;
 
 	level = new Level();
+	level->LoadLevel( "Resources/Levels/level_01.lvl" );
 }
 
 GameScreen::~GameScreen()
@@ -44,7 +45,7 @@ void GameScreen::Render()
 	}
 
 	// TODO: Add player rendering here
-
+	
 	// Render foreground tiles
 	for ( int y = 0; y < level->GetHeight(); y++ )
 	{

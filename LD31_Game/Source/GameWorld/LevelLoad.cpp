@@ -1,21 +1,22 @@
 #include <fstream>
 #include <string>
 
-using namespace std;
+const int width = 32;
+const int height = 24;
 
-string string1;
-const int widthOfLevel = 32;
-const int heightOfLevel = 24;
-char lvl_Char[heightOfLevel][widthOfLevel];
- 
+void LoadFile( std::string path )
+{
+	std::string line;
+	char lvlChars[ height ][ width ];
 
-void LoadFile( string path ){
-	ifstream infile( path );
-	int x = 0;
+	std::ifstream infile( path );
+
 	int y = 0;
-	while (getline(infile, string1)){
-		for (x = 0; x < widthOfLevel; x++){
-			lvl_Char[y][x] = string1[x];
+	while ( std::getline( infile, line ) )
+	{
+		for ( int x = 0; x < width; x++ )
+		{
+			lvlChars[y][x] = line[x];
 		}
 		y++;
 	}
