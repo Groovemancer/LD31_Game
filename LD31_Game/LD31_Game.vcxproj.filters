@@ -120,6 +120,9 @@
     <ClCompile Include="Source\Graphics\TextureManager.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Source\GameWorld\GameObjects\Collidable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Base.h">
@@ -187,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="Headers\Graphics\TextureManager.h">
       <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameWorld\GameObjects\Collidable.h">
+      <Filter>Header Files\GameWorld\GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

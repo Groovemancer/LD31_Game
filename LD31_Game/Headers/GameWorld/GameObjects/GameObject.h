@@ -11,6 +11,8 @@ class GameObject
 protected:
 	Vector2f position;
 	Vector2f velocity;
+	double rotation;
+	SDL_Point origin;
 
 	Texture* texture;
 
@@ -18,12 +20,12 @@ protected:
 	bool initialized;
 public:
 	GameObject();
-	GameObject( Vector2f* pos = NULL, Vector2f* vel = NULL, Texture* texture = NULL );
+	GameObject( Vector2f* pos, Vector2f* vel = NULL, Texture* texture = NULL );
 	virtual ~GameObject();
 	void Initialize( int id );
 	void SetId( int id );
 
-	void Update( int ticks );
+	void Update( float elapsedTime );
 	void Render();
 
 	Vector2f GetPosition();

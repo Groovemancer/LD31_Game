@@ -13,7 +13,7 @@ public:
 	void CleanUp();
 	void AddScreen( Screen* screen );
 	void RemoveScreen();
-	void Update( int ticks );
+	void Update( float elapsedTime );
 	void Render();
 };
 

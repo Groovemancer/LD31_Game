@@ -11,7 +11,7 @@ protected:
 public:
 	Screen();
 	virtual ~Screen();
-	virtual void Update( int ticks );
+	virtual void Update( float elapsedTime );
 	virtual void Render();
 	bool IsFinished();
 	bool IsDisposable();

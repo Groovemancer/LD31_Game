@@ -12,7 +12,7 @@ Screen::~Screen()
 	delete nextScreen;
 }
 
-void Screen::Update( int ticks )
+void Screen::Update( float elapsedTime )
 {
 }
 

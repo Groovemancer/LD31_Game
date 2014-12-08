@@ -25,6 +25,7 @@ public:
 	virtual ~Tile();
 	virtual void Load();
 
+	TileType GetType();
 	SDL_Rect GetRect();
 	virtual Texture* GetTexture();
 	int GetWidth();

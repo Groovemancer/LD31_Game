@@ -21,7 +21,7 @@ void ScreenManager::RemoveScreen()
 	screenStack.pop();
 }
 
-void ScreenManager::Update( int ticks )
+void ScreenManager::Update( float elapsedTime )
 {
 	if ( !screenStack.empty() )
 	{
@@ -29,7 +29,7 @@ void ScreenManager::Update( int ticks )
 		Screen* screen = screenStack.top();
 
 		// Update the top screen
-		screen->Update( ticks );
+		screen->Update( elapsedTime );
 
 		// If and when the top screen is done, move to its next screen
 		if ( screen->IsFinished() )

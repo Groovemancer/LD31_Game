@@ -27,6 +27,7 @@
 #include "GameWorld\Level.h"
 
 #include "GameWorld\GameObjects\GameObject.h"
+#include "GameWorld\GameObjects\Collidable.h"
 #include "GameWorld\GameObjects\GameObjectManager.h"
 
 #include <string>

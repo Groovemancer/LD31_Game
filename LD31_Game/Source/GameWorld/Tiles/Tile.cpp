@@ -27,6 +27,11 @@ Tile::~Tile()
 	}
 }
 
+TileType Tile::GetType()
+{
+	return type;
+}
+
 SDL_Rect Tile::GetRect()
 {
 	SDL_Rect rect = { 0, 0, width, height };

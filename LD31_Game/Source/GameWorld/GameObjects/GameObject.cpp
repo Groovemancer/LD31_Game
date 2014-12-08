@@ -20,6 +20,10 @@ GameObject::GameObject( Vector2f* pos, Vector2f* vel, Texture* tex )
 	delete pos;
 	delete vel;
 
+	origin.x = 12;
+	origin.y = 12;
+	rotation = 0.0;
+
 	texture = tex;
 	initialized = false;
 }
@@ -42,22 +46,19 @@ void GameObject::SetId( int id )
 	GameObject::id = id;
 }
 
-void GameObject::Update( int ticks )
+void GameObject::Update( float elapsedTime )
 {
-	float gameTime = ticks / 1000.f;
+	double rotSpeed = 720.0;
+	rotation += rotSpeed * elapsedTime;
 
-	std::stringstream str;
-	str << "Ticks: " << gameTime << "\n";
-	OutputDebugString( str.str().c_str() );
-
-	position += velocity * gameTime;
+	position += velocity * elapsedTime;
 }
 
 void GameObject::Render()
 {
 	if ( texture != NULL )
 	{
-		texture->render( (int)position.x, (int)position.y );
+		texture->render( (int)position.x, (int)position.y, NULL, rotation, &origin );
 	}
 }
 

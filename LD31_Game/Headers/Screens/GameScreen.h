@@ -20,7 +20,7 @@ private:
 public:
 	GameScreen();
 	~GameScreen();
-	void Update( int ticks );
+	void Update( float elapsedTime );
 	void Render();
 };
 

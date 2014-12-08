@@ -3,6 +3,7 @@
 Game MainGame::game;
 bool MainGame::quit;
 Timer MainGame::delta;
+Timer MainGame::capTimer;
 int MainGame::countedFrames;
 
 bool MainGame::Initialize()
@@ -57,7 +58,7 @@ bool MainGame::LoadFiles()
 	game.screenManager.AddScreen( new GameScreen() );
 
 	Texture* axeTexture = TextureManager::LoadTexture( "Item_Axe", "Resources/Textures/Items/Axe.png" );
-	game.gameObjectManager.AddGameObject( new GameObject( new Vector2f( 100, 100 ), new Vector2f( 120, 0 ), axeTexture ) );
+	game.gameObjectManager.AddGameObject( new GameObject( new Vector2f( 100, 100 ), new Vector2f( 240, 0 ), axeTexture ) );
 
 	// If everything loaded fine
 	return success;
@@ -74,7 +75,10 @@ void MainGame::GameLoop()
 		// Update input manager. Returns true if game is quit
 		quit = InputManager::Update();
 
-		game.screenManager.Update( delta.Get_Ticks() );
+		// Elapsed time in seconds
+		float elapsedTime = delta.Get_Ticks() / 1000.f;
+
+		game.screenManager.Update( elapsedTime );
 
 		if ( InputManager::IsKeyDown( KEY_ESCAPE ) )
 			MainGame::Quit();
@@ -88,6 +92,15 @@ void MainGame::GameLoop()
 
 		// Renders screen
 		Render();
+
+		countedFrames++;
+		// If frame finished early
+		int frameTicks = capTimer.Get_Ticks();
+		if ( frameTicks < Game::SCREEN_TICKS_PER_FRAME )
+		{
+			// Wait remaining time
+			SDL_Delay( Game::SCREEN_TICKS_PER_FRAME - frameTicks );
+		}
 	}
 
 	game.screenManager.CleanUp();

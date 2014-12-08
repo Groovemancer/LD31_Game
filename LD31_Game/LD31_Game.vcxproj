@@ -47,7 +47,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Visual Leak Detector\include;C:\Game Development\Code\LD31_Game\LD31_Game\Headers;X:\Game Development\Code\LD31_Game\LD31_Game\Headers;X:\Program Files %28x86%29\Visual Leak Detector\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Visual Leak Detector\include;C:\Game Development\Projects\LD31_Game\LD31_Game\Headers;X:\Game Development\Code\LD31_Game\LD31_Game\Headers;X:\Program Files %28x86%29\Visual Leak Detector\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -71,6 +71,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Game.cpp" />
+    <ClCompile Include="Source\GameWorld\GameObjects\Collidable.cpp" />
     <ClCompile Include="Source\GameWorld\GameObjects\GameObject.cpp" />
     <ClCompile Include="Source\GameWorld\GameObjects\GameObjectManager.cpp" />
     <ClCompile Include="Source\GameWorld\Level.cpp" />
@@ -92,6 +93,7 @@
     <ClCompile Include="Source\Helpers\Vector2f.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\GameWorld\GameObjects\Collidable.h" />
     <ClInclude Include="Headers\Base.h" />
     <ClInclude Include="Headers\Game.h" />
     <ClInclude Include="Headers\GameWorld\GameObjects\GameObject.h" />

@@ -16,7 +16,7 @@ GameScreen::~GameScreen()
 	Screen::~Screen();
 }
 
-void GameScreen::Update( int ticks )
+void GameScreen::Update( float elapsedTime )
 {
 	for ( int i = 0; i < Game::gameObjectManager.Count(); i++ )
 	{
@@ -25,7 +25,12 @@ void GameScreen::Update( int ticks )
 		if ( gameObj == NULL )
 			continue;
 
-		gameObj->Update( ticks );
+		gameObj->Update( elapsedTime );
+
+		// TODO: Check collisions here!
+		if ( Collidable* col = dynamic_cast< Collidable* >( gameObj ) )
+		{
+		}
 	}
 }
 
