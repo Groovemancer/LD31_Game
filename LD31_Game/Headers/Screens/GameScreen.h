@@ -14,6 +14,9 @@ private:
 	// Offsets for where to start drawing to account for the screen border/hud
 	int offsetX;
 	int offsetY;
+
+	void RenderGameObjects();
+
 public:
 	GameScreen();
 	~GameScreen();

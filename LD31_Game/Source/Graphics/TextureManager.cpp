@@ -37,6 +37,10 @@ void TextureManager::RemoveTexture( std::string id )
 	if ( !TextureExists( id ) )
 		return;
 
+	std::stringstream str;
+	str << "Removing Texture: " << id << "\n";
+	OutputDebugString( str.str().c_str() );
+
 	delete textureManager.find( id )->second;
 	textureManager.erase( id );
 }
@@ -45,6 +49,9 @@ void TextureManager::RemoveAll()
 {
 	for ( std::map< std::string, Texture* >::iterator itr = textureManager.begin(); itr != textureManager.end(); itr++ )
 	{
+		std::stringstream str;
+		str << "Removing Texture: " << itr->first << "\n";
+		OutputDebugString( str.str().c_str() );
 		delete itr->second;
 	}
 	textureManager.clear();

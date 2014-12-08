@@ -7,7 +7,7 @@ GameObjectManager::GameObjectManager()
 
 GameObjectManager::~GameObjectManager()
 {
-	for ( int i = 0; i < (int)gameObjects.size(); i++ )
+	for ( int i = 0; i < Count(); i++ )
 	{
 		delete gameObjects[ i ];
 	}
@@ -18,7 +18,7 @@ GameObjectManager::~GameObjectManager()
 void GameObjectManager::AddGameObject( GameObject* gameObject )
 {
 	bool inserted = false;
-	for ( int i = 0; i < (int)gameObjects.size(); i++ )
+	for ( int i = 0; i < Count(); i++ )
 	{
 		if ( gameObjects[ i ] != NULL )
 			continue;
@@ -32,20 +32,34 @@ void GameObjectManager::AddGameObject( GameObject* gameObject )
 	{
 		gameObjects.push_back( gameObject );
 
-		int id = (int)gameObjects.size() - 1;
+		int id = Count() - 1;
 		gameObject->Initialize( id );
 	}
 }
 
 void GameObjectManager::RemoveGameObject( int id )
 {
+	delete gameObjects[ id ];
 	gameObjects[ id ] = NULL;
+}
+
+void GameObjectManager::RemoveAll()
+{
+	for ( int i = 0; i < Count(); i++ )
+	{
+		if ( gameObjects[ i ] != NULL )
+		{
+			delete gameObjects[ i ];
+		}
+
+	}
+	gameObjects.clear();
 }
 
 GameObject* GameObjectManager::GetGameObject( int id )
 {
-	if ( gameObjects.size() >= id )
+	if ( id >= Count() || id < 0 )
 		return NULL;
 
-	//if ( gameObjects[ id ] !=
+	return gameObjects[ id ];
 }

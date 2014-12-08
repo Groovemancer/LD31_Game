@@ -12,6 +12,10 @@ private:
 
 	// Keeps track of time since last rendering
 	static Timer delta;
+	static Timer capTimer;
+
+	// Counter for frames per second
+	static int countedFrames;
 
 	// The game itself
 	static Game game;

@@ -3,6 +3,7 @@
 Game MainGame::game;
 bool MainGame::quit;
 Timer MainGame::delta;
+int MainGame::countedFrames;
 
 bool MainGame::Initialize()
 {
@@ -26,6 +27,7 @@ bool MainGame::Initialize()
 	}
 	
 	// Start delta timer
+	countedFrames = 0;
 	delta.Start();
 
 	return true;
@@ -33,6 +35,9 @@ bool MainGame::Initialize()
 
 void MainGame::Quit()
 {
+	OutputDebugString( "Removing all game objects...\n" );
+	game.gameObjectManager.RemoveAll();
+
 	OutputDebugString( "Removing all screens...\n" );
 	game.screenManager.CleanUp();
 
@@ -51,6 +56,9 @@ bool MainGame::LoadFiles()
 	// TODO: Add Game Screen
 	game.screenManager.AddScreen( new GameScreen() );
 
+	Texture* axeTexture = TextureManager::LoadTexture( "Item_Axe", "Resources/Textures/Items/Axe.png" );
+	game.gameObjectManager.AddGameObject( new GameObject( new Vector2f( 100, 100 ), new Vector2f( 120, 0 ), axeTexture ) );
+
 	// If everything loaded fine
 	return success;
 }
@@ -60,9 +68,12 @@ void MainGame::GameLoop()
 	// While the user hasn't quit
 	while ( !quit )
 	{
+		// Start cap timer
+		capTimer.Start();
+
 		// Update input manager. Returns true if game is quit
 		quit = InputManager::Update();
-				
+
 		game.screenManager.Update( delta.Get_Ticks() );
 
 		if ( InputManager::IsKeyDown( KEY_ESCAPE ) )

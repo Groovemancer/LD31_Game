@@ -3,6 +3,7 @@
 SDL_Window* Game::window;
 SDL_Renderer* Game::renderer;
 ScreenManager Game::screenManager;
+GameObjectManager Game::gameObjectManager;
 
 bool Game::Initialize()
 {

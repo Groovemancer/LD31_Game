@@ -18,7 +18,15 @@ GameScreen::~GameScreen()
 
 void GameScreen::Update( int ticks )
 {
+	for ( int i = 0; i < Game::gameObjectManager.Count(); i++ )
+	{
+		GameObject* gameObj = Game::gameObjectManager.GetGameObject( i );
+		
+		if ( gameObj == NULL )
+			continue;
 
+		gameObj->Update( ticks );
+	}
 }
 
 void GameScreen::Render()
@@ -43,6 +51,9 @@ void GameScreen::Render()
 			}
 		}
 	}
+	
+	// Render Game Objects
+	RenderGameObjects();
 
 	// TODO: Add player rendering here
 	
@@ -62,5 +73,18 @@ void GameScreen::Render()
 				}
 			}
 		}
+	}
+}
+
+void GameScreen::RenderGameObjects()
+{
+	for ( int i = 0; i < Game::gameObjectManager.Count(); i++ )
+	{
+		GameObject* gameObj = Game::gameObjectManager.GetGameObject( i );
+		
+		if ( gameObj == NULL )
+			continue;
+
+		gameObj->Render();
 	}
 }

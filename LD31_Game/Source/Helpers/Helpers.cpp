@@ -1,5 +1,6 @@
 #include "Base.h"
 #include <algorithm>
+#include <cstdarg>
 
 std::string Helpers::ToLower( std::string str )
 {

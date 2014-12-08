@@ -3,6 +3,7 @@
 
 #include <SDL.h>
 #include "Screens\ScreenManager.h"
+#include "GameWorld\GameObjects\GameObjectManager.h"
 #include <string>
 
 class Game
@@ -23,8 +24,13 @@ public:
 	// Windowed = 0, Fullscreen = 1, Borderless Window = 2
 	static const int WINDOW_STATE = 0;
 
+	// Game FPS
+	static const int SCREEN_FPS = 60;
+	static const int SCREEN_TICKS_PER_FRAME = 1000 / SCREEN_FPS;
+
 	// Manages all the different types of "screens"
 	static ScreenManager screenManager;
+	static GameObjectManager gameObjectManager;
 
 	bool Initialize();
 	void Clear_Screen( SDL_Color color );
