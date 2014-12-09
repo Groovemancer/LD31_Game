@@ -52,3 +52,5 @@ ipch/
 *.vcxproj
 *.vcxproj.user
 *.opensdf
+*/*.vcxproj
+*/*.vcxproj.user
