@@ -30,6 +30,27 @@ void GameScreen::Update( float elapsedTime )
 		// TODO: Check collisions here!
 		if ( Collidable* col = dynamic_cast< Collidable* >( gameObj ) )
 		{
+			for ( int j = 0; j < Game::gameObjectManager.Count(); j++ )
+			{
+				// Don't collide with self...
+				if ( j == i )
+					continue;
+
+				GameObject* gameObj2 = Game::gameObjectManager.GetGameObject( i );
+				
+				if ( Collidable* col2 = dynamic_cast< Collidable* > ( gameObj2 ) )
+				{
+					if ( col->IsIgnored( col2 ) )
+						continue;
+					
+					if ( Collidable::CheckCollision( col->GetColRect(), col2->GetColRect() ) )
+					{
+						OutputDebugString( "Collision!\n" );
+					}
+				}
+				
+			}
+			OutputDebugString( "Collidable!\n" );
 		}
 	}
 }

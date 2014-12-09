@@ -74,6 +74,7 @@
     <ClCompile Include="Source\GameWorld\GameObjects\Collidable.cpp" />
     <ClCompile Include="Source\GameWorld\GameObjects\GameObject.cpp" />
     <ClCompile Include="Source\GameWorld\GameObjects\GameObjectManager.cpp" />
+    <ClCompile Include="Source\GameWorld\GameObjects\Projectile.cpp" />
     <ClCompile Include="Source\GameWorld\Level.cpp" />
     <ClCompile Include="Source\GameWorld\Tiles\Tile.cpp" />
     <ClCompile Include="Source\GameWorld\Tiles\Tile_Dirt.cpp" />
@@ -98,6 +99,8 @@
     <ClInclude Include="Headers\Game.h" />
     <ClInclude Include="Headers\GameWorld\GameObjects\GameObject.h" />
     <ClInclude Include="Headers\GameWorld\GameObjects\GameObjectManager.h" />
+    <ClInclude Include="Headers\GameWorld\GameObjects\Player.h" />
+    <ClInclude Include="Headers\GameWorld\GameObjects\Projectile.h" />
     <ClInclude Include="Headers\GameWorld\Level.h" />
     <ClInclude Include="Headers\GameWorld\Tiles\Tile.h" />
     <ClInclude Include="Headers\GameWorld\Tiles\Tile_Dirt.h" />

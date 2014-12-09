@@ -58,7 +58,8 @@ bool MainGame::LoadFiles()
 	game.screenManager.AddScreen( new GameScreen() );
 
 	Texture* axeTexture = TextureManager::LoadTexture( "Item_Axe", "Resources/Textures/Items/Axe.png" );
-	game.gameObjectManager.AddGameObject( new GameObject( new Vector2f( 100, 100 ), new Vector2f( 240, 0 ), axeTexture ) );
+	Projectile* axe = new Projectile( NULL, NULL, axeTexture, Vector2f( 100, 100 ), 100, Vector2f( 0, 150 ), -30, 720 );
+	game.gameObjectManager.AddGameObject( axe );
 
 	// If everything loaded fine
 	return success;

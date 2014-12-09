@@ -28,6 +28,8 @@
 
 #include "GameWorld\GameObjects\GameObject.h"
 #include "GameWorld\GameObjects\Collidable.h"
+#include "GameWorld\GameObjects\Projectile.h"
+#include "GameWorld\GameObjects\Player.h"
 #include "GameWorld\GameObjects\GameObjectManager.h"
 
 #include <string>

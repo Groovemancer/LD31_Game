@@ -120,8 +120,11 @@
     <ClCompile Include="Source\Graphics\TextureManager.cpp">
       <Filter>Source Files\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Source\GameWorld\GameObjects\Projectile.cpp">
+      <Filter>Source Files\GameWorld\GameObjects</Filter>
+    </ClCompile>
     <ClCompile Include="Source\GameWorld\GameObjects\Collidable.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameWorld\GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -192,6 +195,12 @@
       <Filter>Header Files\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Headers\GameWorld\GameObjects\Collidable.h">
+      <Filter>Header Files\GameWorld\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameWorld\GameObjects\Projectile.h">
+      <Filter>Header Files\GameWorld\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameWorld\GameObjects\Player.h">
       <Filter>Header Files\GameWorld\GameObjects</Filter>
     </ClInclude>
   </ItemGroup>

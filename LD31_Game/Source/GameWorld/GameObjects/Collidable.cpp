@@ -1,9 +1,12 @@
 #include "Base.h"
 
-Collidable::Collidable( SDL_Rect colRect, bool solid )
+Collidable::Collidable( bool solid )
 {
-	Collidable::colRect = colRect;
 	Collidable::solid = solid;
+}
+
+void Collidable::Update( float elapsedTime )
+{
 }
 
 bool Collidable::CheckCollision( SDL_Rect colRectA, SDL_Rect colRectB )
@@ -88,4 +91,9 @@ SDL_Rect Collidable::Right()
 	right.w = colRect.w / 4;
 
 	return right;
+}
+
+bool Collidable::IsIgnored( Collidable* object )
+{
+	return ignoredObjects.find( object ) != ignoredObjects.end();
 }
