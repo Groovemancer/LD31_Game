@@ -54,3 +54,5 @@ ipch/
 *.opensdf
 */*.vcxproj
 */*.vcxproj.user
+LD31_Game/*vcxproj
+LD31_Game/*vcxproj.user
