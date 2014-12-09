@@ -34,4 +34,6 @@ void Projectile::Update( float elapsedTime )
 	colRect.y = (int)position.y;
 
 	rotation += rotSpeed * elapsedTime;
+
+	OutputDebugString( "Update it?\n" );
 }

@@ -7,7 +7,7 @@
 #include "Collidable.h"
 #include "Player.h"
 
-class Projectile : public GameObject, Collidable
+class Projectile : public GameObject, public Collidable
 {
 private:
 	float launchSpeed;
