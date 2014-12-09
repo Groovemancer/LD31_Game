@@ -56,6 +56,21 @@ void GameObjectManager::RemoveAll()
 	gameObjects.clear();
 }
 
+void GameObjectManager::SafelyRemoveObject( int id )
+{
+	removeList.push( id );
+}
+
+void GameObjectManager::RemoveAllPending()
+{
+	while ( !removeList.empty() )
+	{
+		int id = removeList.top();
+		RemoveGameObject( id );
+		removeList.pop();
+	}
+}
+
 GameObject* GameObjectManager::GetGameObject( int id )
 {
 	if ( id >= Count() || id < 0 )

@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Headers\GameWorld\Tiles\Tile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameWorld\Tiles\Tile_StonePlatform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameWorld\Tiles\Tile_Dirt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameWorld\Tiles\Tile_Pipe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameWorld\Tiles\Tile_Stone.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameWorld\Level.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameWorld\GameObjects\Projectile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameWorld\GameObjects\Collidable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameWorld\GameObjects\GameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameWorld\GameObjects\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\GameWorld\GameObjects\GameObjectManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Graphics\Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Graphics\TextureManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Helpers\Helpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Helpers\Vector2f.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Helpers\InputManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Helpers\Keys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Helpers\MouseButtons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Helpers\Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Screens\GameScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\MainGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Screens\Screen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Screens\ScreenManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Base.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\GameWorld\GameObjects\Collidable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameWorld\GameObjects\Projectile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameWorld\GameObjects\GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameWorld\GameObjects\GameObjectManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameWorld\Tiles\Tile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameWorld\Tiles\Tile_StonePlatform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameWorld\Tiles\Tile_Dirt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameWorld\Tiles\Tile_Pipe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameWorld\Tiles\Tile_Stone.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameWorld\Level.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics\Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics\TextureManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Helpers\Helpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Helpers\Vector2f.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Helpers\InputManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Helpers\Timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Screens\GameScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MainGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Screens\Screen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Screens\ScreenManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MainApplication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Levels\level_01.lvl" />
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Dead.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Wind.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Dodge.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Dying.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Idle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Jump_1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Jump_2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Throw.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Walk_1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Walk_2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Black\Char_Black_Dead.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Black\Char_Black_Wind.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Black\Char_Black_Dodge.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Black\Char_Black_Dying.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Black\Char_Black_Idle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Black\Char_Black_Jump_1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Black\Char_Black_Jump_2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Black\Char_Black_Throw.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Black\Char_Black_Walk_1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Black\Char_Black_Walk_2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Blue\Char_Blue_Dead.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Blue\Char_Blue_Wind.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Blue\Char_Blue_Dodge.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Blue\Char_Blue_Dying.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Blue\Char_Blue_Idle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Blue\Char_Blue_Jump_1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Blue\Char_Blue_Jump_2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Blue\Char_Blue_Throw.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Blue\Char_Blue_Walk_1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Blue\Char_Blue_Walk_2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Green\Char_Green_Dead.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Green\Char_Green_Walk_2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Green\Char_Green_Dodge.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Green\Char_Green_Dying.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Green\Char_Green_Idle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Green\Char_Green_Jump_1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Green\Char_Green_Jump_2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Green\Char_Green_Throw.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Green\Char_Green_Walk_1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Green\Char_Green_Wind.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Red\Char_Red_Dead.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Red\Char_White_Dodge.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Red\Char_Red_Dodge.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Red\Char_Red_Dying.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Red\Char_Red_Idle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Red\Char_Red_Jump_1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Red\Char_Red_Jump_2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Red\Char_Red_Throw.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Red\Char_Red_Walk_1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Red\Char_Red_Walk_2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\Red\Char_Red_Wind.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\White\Char_White_Dead.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\White\Char_White_Wind.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\White\Char_White_Dying.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\White\Char_White_Idle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\White\Char_White_Jump_1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\White\Char_White_Jump_2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\White\Char_White_Throw.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\White\Char_White_Walk_1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\White\Char_White_Walk_2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Items\Axe.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Items\Hammer.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Items\Bomb.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Tiles\FTile_Pipe.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\testBackground.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Tiles\Tile_Dirt.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Tiles\Tile_Stone.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Tiles\Tile_StonePlatform.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Tiles\Tile_Test.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Level01_background.png">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

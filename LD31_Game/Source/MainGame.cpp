@@ -18,7 +18,7 @@ bool MainGame::Initialize()
 	// Game title goes in here
 	game.Set_Window_Title( "Ludum Dare #31" );
 
-	game.Set_Fullscreen( 1 );
+	game.Set_Fullscreen( Game::WINDOW_STATE );
 	
 	// Load the files
 	if ( !LoadFiles() )
@@ -57,7 +57,7 @@ bool MainGame::LoadFiles()
 	game.screenManager.AddScreen( new GameScreen() );
 
 	Texture* axeTexture = TextureManager::LoadTexture( "Item_Axe", "Resources/Textures/Items/Axe.png" );
-	Projectile* axe = new Projectile( NULL, NULL, axeTexture, Vector2f( 100, 100 ), 300, Vector2f( 0, 5 ), -60, 720, -30 );
+	Projectile* axe = new Projectile( NULL, NULL, axeTexture, Vector2f( 400, 400 ), 300, Vector2f( 0, 5 ), -60, 720, -30 );
 	game.gameObjectManager.AddGameObject( axe );
 
 	// If everything loaded fine

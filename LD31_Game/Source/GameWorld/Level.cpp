@@ -160,21 +160,29 @@ Texture* Level::GetBackgroundTexture()
 
 Tile* Level::GetTile( int x, int y )
 {
+	if ( x < 0 || x >= width || y < 0 || y >= height )
+		return NULL;
 	return tiles[ x + y * width ];
 }
 
 Tile* Level::GetFTile( int x, int y )
 {
+	if ( x < 0 || x >= width || y < 0 || y >= height )
+		return NULL;
 	return fTiles[ x + y * width ];
 }
 
 void Level::SetTile( int x, int y, Tile* tile )
 {
+	if ( x < 0 || x >= width || y < 0 || y >= height )
+		return;
 	tiles[ x + y * width ] = tile;
 }
 
 void Level::SetFTile( int x, int y, Tile* tile )
 {
+	if ( x < 0 || x >= width || y < 0 || y >= height )
+		return;
 	fTiles[ x + y * width ] = tile;
 }
 

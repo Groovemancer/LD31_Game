@@ -17,7 +17,7 @@ public:
 	Collidable( bool solid = true );
 
 	// Called when collides with another collidable object
-	void Collision();
+	virtual void Collision();
 
 	// Keep colRect up to date based on object's position
 	virtual void UpdateRect();

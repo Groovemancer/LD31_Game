@@ -10,11 +10,14 @@ class GameObjectManager
 {
 private:
 	std::vector< GameObject* > gameObjects;
+	std::stack< int > removeList;
 public:
 	GameObjectManager();
 	~GameObjectManager();
 
 	void AddGameObject( GameObject* gameObject );
+	void SafelyRemoveObject( int id );
+	void RemoveAllPending();
 	void RemoveGameObject( int id );
 	void RemoveAll();
 	GameObject* GetGameObject( int id );

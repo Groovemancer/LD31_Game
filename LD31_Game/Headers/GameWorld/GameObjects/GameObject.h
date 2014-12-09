@@ -30,6 +30,7 @@ public:
 
 	Vector2f GetPosition();
 	Vector2f GetVelocity();
+	int GetId() { return id; }
 };
 
 #endif

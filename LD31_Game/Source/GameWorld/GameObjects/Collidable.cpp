@@ -9,6 +9,10 @@ void Collidable::UpdateRect()
 {
 }
 
+void Collidable::Collision()
+{
+}
+
 bool Collidable::CheckCollision( SDL_Rect colRectA, SDL_Rect colRectB )
 {
 	// The sides of the rectangles

@@ -21,6 +21,9 @@ protected:
 	bool initialized;
 	
 public:
+	static const int WIDTH = 24;
+	static const int HEIGHT = 24;
+
 	Tile();
 	virtual ~Tile();
 	virtual void Load();

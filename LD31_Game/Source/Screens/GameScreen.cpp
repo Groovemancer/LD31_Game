@@ -40,19 +40,46 @@ void GameScreen::Update( float elapsedTime )
 				
 				if ( Collidable* col2 = dynamic_cast< Collidable* > ( gameObj2 ) )
 				{
+					// Ignores objects that are in the collidable's ignore list
 					if ( col->IsIgnored( col2 ) )
 						continue;
-					
+					// Collide with other game object
 					if ( Collidable::CheckCollision( col->GetColRect(), col2->GetColRect() ) )
 					{
 						OutputDebugString( "Collision!\n" );
 					}
 				}
-				
 			}
+
+			// Check collision against tiles
+
+			// Convert the collidable object's position to tile coordinates
+			int colTileX = col->GetColRect().x / Tile::WIDTH;
+			int colTileY = col->GetColRect().y / Tile::HEIGHT;
+
+			std::stringstream str;
+			str << "Tile X: " << colTileX << ", Y: " << colTileY << ", W: " << col->GetColRect().w << ", H: " << col->GetColRect().h << "\n";
+			OutputDebugString( str.str().c_str() );
+			
+			// Grabs the tile that the object is touching
+			// TODO: Account for objects larger than 1 tile wide/high
+			Tile* tile = level->GetTile( colTileX, colTileY );			
+			if ( tile != NULL && tile->GetType() != EMPTY )
+			{
+				SDL_Rect tileRect = tile->GetRect();
+				tileRect.x = colTileX * Tile::WIDTH;
+				tileRect.y = colTileY * Tile::HEIGHT;
+				if ( Collidable::CheckCollision( col->GetColRect(), tileRect ) )
+				{
+					OutputDebugString( "Collided with tile!\n" );
+					col->Collision();
+				}
+			}
+			
 			//OutputDebugString( "Collidable!\n" );
 		}
 	}
+	Game::gameObjectManager.RemoveAllPending();
 }
 
 void GameScreen::Render()
