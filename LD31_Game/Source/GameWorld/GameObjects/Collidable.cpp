@@ -5,7 +5,7 @@ Collidable::Collidable( bool solid )
 	Collidable::solid = solid;
 }
 
-void Collidable::Update( float elapsedTime )
+void Collidable::UpdateRect()
 {
 }
 
