@@ -25,8 +25,8 @@ public:
 	void Initialize( int id );
 	void SetId( int id );
 
-	void Update( float elapsedTime );
-	void Render();
+	virtual void Update( float elapsedTime );
+	virtual void Render();
 
 	Vector2f GetPosition();
 	Vector2f GetVelocity();

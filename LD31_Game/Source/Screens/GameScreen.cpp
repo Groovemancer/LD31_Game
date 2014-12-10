@@ -50,7 +50,7 @@ void GameScreen::Update( float elapsedTime )
 				}
 				
 			}
-			OutputDebugString( "Collidable!\n" );
+			//OutputDebugString( "Collidable!\n" );
 		}
 	}
 }

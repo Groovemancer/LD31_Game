@@ -48,10 +48,6 @@ void GameObject::SetId( int id )
 
 void GameObject::Update( float elapsedTime )
 {
-	double rotSpeed = 720.0;
-	rotation += rotSpeed * elapsedTime;
-
-	position += velocity * elapsedTime;
 }
 
 void GameObject::Render()

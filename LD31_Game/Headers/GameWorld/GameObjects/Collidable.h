@@ -20,7 +20,7 @@ public:
 	void Collision();
 
 	// Keep colRect up to date based on object's position
-	virtual void Update( float elapsedTime );
+	virtual void UpdateRect();
 	
 	// Determines if there is a collision or not
 	static bool CheckCollision( SDL_Rect colRectA, SDL_Rect colRectB );

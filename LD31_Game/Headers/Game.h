@@ -22,7 +22,7 @@ public:
 	static const int SCREEN_HEIGHT = 600;
 
 	// Windowed = 0, Fullscreen = 1, Borderless Window = 2
-	static const int WINDOW_STATE = 0;
+	static const int WINDOW_STATE = 1;
 
 	// Game FPS
 	static const int SCREEN_FPS = 60;
