@@ -90,6 +90,9 @@
     <ClInclude Include="Headers\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Headers\Graphics\Animation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\GameWorld\GameObjects\Collidable.cpp">
@@ -158,39 +161,15 @@
     <ClCompile Include="Source\MainApplication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\GameWorld\GameObjects\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics\Animation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Levels\level_01.lvl" />
-    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Dead.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Wind.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Dodge.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Dying.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Idle.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Jump_1.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Jump_2.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Throw.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Walk_1.png">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Walk_2.png">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="Resources\Textures\Characters\Black\Char_Black_Dead.png">
       <Filter>Resource Files</Filter>
     </None>
