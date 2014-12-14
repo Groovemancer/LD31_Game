@@ -8,8 +8,6 @@ Tile::Tile()
 
 	// What type of tile this is and how it interacts with the player
 	type = EMPTY;
-	
-	deleted = false;
 }
 
 void Tile::Load()
@@ -18,13 +16,6 @@ void Tile::Load()
 
 Tile::~Tile()
 {
-	if ( !deleted )
-	{
-		OutputDebugString( "Delete Tile\n" );
-		//delete texture;
-
-		deleted = true;
-	}
 }
 
 TileType Tile::GetType()

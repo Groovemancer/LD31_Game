@@ -139,6 +139,14 @@ void Level::InsertCharTile( int x, int y, char charTile )
 		SetTile( x, y, new Tile_Stone() );
 	else if ( charTile == Tile_StonePlatform::GetId() )
 		SetTile( x, y, new Tile_StonePlatform() );
+	else if ( charTile == '$' )
+	{
+		// Create a spawn point and it add it to the list of spawn points
+		Vector2f spawn = Vector2f::Zero();
+		spawn.x = x * Tile::WIDTH;
+		spawn.y = y * Tile::HEIGHT;
+		spawnPoints.push_back( spawn );
+	}
 }
 
 void Level::ResetTiles()
@@ -151,6 +159,11 @@ void Level::ResetTiles()
 			fTiles[ x + y * width ] = NULL; // Initialize foreground tile to NULL
 		}
 	}
+}
+
+Vector2f Level::FindOpenSpawnPoint()
+{
+
 }
 
 Texture* Level::GetBackgroundTexture()

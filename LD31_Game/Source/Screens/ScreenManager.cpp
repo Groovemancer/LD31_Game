@@ -1,5 +1,7 @@
 #include "Base.h"
 
+std::stack< Screen* > ScreenManager::screenStack;
+
 void ScreenManager::CleanUp()
 {
 	// As long as the stack isn't empty, empty it one at a time

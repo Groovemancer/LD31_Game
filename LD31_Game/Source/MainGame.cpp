@@ -36,10 +36,10 @@ bool MainGame::Initialize()
 void MainGame::Quit()
 {
 	OutputDebugString( "Removing all game objects...\n" );
-	game.gameObjectManager.RemoveAll();
+	Game::GameObjectManager.RemoveAll();
 
 	OutputDebugString( "Removing all screens...\n" );
-	game.screenManager.CleanUp();
+	Game::ScreenManager.CleanUp();
 
 	OutputDebugString( "Removing all textures...\n" );
 	TextureManager::RemoveAll();
@@ -54,11 +54,12 @@ bool MainGame::LoadFiles()
 	bool success = true;
 	
 	// TODO: Add Game Screen
-	game.screenManager.AddScreen( new GameScreen() );
+	Game::ScreenManager.AddScreen( new GameScreen() );
 
 	Texture* axeTexture = TextureManager::LoadTexture( "Item_Axe", "Resources/Textures/Items/Axe.png" );
 	Projectile* axe = new Projectile( NULL, NULL, axeTexture, Vector2f( 400, 400 ), 300, Vector2f( 0, 5 ), -60, 720, -30 );
-	game.gameObjectManager.AddGameObject( axe );
+
+	Game::GameObjectManager.AddGameObject( axe );
 
 	// If everything loaded fine
 	return success;
@@ -78,7 +79,7 @@ void MainGame::GameLoop()
 		// Elapsed time in seconds
 		float elapsedTime = delta.Get_Ticks() / 1000.f;
 
-		game.screenManager.Update( elapsedTime );
+		Game::ScreenManager.Update( elapsedTime );
 
 		if ( InputManager::IsKeyDown( KEY_ESCAPE ) )
 			MainGame::Quit();
@@ -103,7 +104,7 @@ void MainGame::GameLoop()
 		}
 	}
 
-	game.screenManager.CleanUp();
+	Game::ScreenManager.CleanUp();
 
 	// Clean up
 	game.Clean_Up();
@@ -117,7 +118,7 @@ void MainGame::Render()
 	game.Clear_Screen( color );
 
 	// Render the top screen
-	game.screenManager.Render();
+	Game::ScreenManager.Render();
 
 	game.Update_Screen();
 }

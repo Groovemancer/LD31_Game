@@ -18,9 +18,9 @@ GameScreen::~GameScreen()
 
 void GameScreen::Update( float elapsedTime )
 {
-	for ( int i = 0; i < Game::gameObjectManager.Count(); i++ )
+	for ( int i = 0; i < MainGame::Game().GameObjectManager.Count(); i++ )
 	{
-		GameObject* gameObj = Game::gameObjectManager.GetGameObject( i );
+		GameObject* gameObj = MainGame::Game().GameObjectManager.GetGameObject( i );
 		
 		if ( gameObj == NULL )
 			continue;
@@ -30,13 +30,13 @@ void GameScreen::Update( float elapsedTime )
 		// TODO: Check collisions here!
 		if ( Collidable* col = dynamic_cast< Collidable* >( gameObj ) )
 		{
-			for ( int j = 0; j < Game::gameObjectManager.Count(); j++ )
+			for ( int j = 0; j < MainGame::Game().GameObjectManager.Count(); j++ )
 			{
 				// Don't collide with self...
 				if ( j == i )
 					continue;
 
-				GameObject* gameObj2 = Game::gameObjectManager.GetGameObject( i );
+				GameObject* gameObj2 = MainGame::Game().GameObjectManager.GetGameObject( i );
 				
 				if ( Collidable* col2 = dynamic_cast< Collidable* > ( gameObj2 ) )
 				{
@@ -79,7 +79,7 @@ void GameScreen::Update( float elapsedTime )
 			//OutputDebugString( "Collidable!\n" );
 		}
 	}
-	Game::gameObjectManager.RemoveAllPending();
+	MainGame::Game().GameObjectManager.RemoveAllPending();
 }
 
 void GameScreen::Render()
@@ -131,9 +131,9 @@ void GameScreen::Render()
 
 void GameScreen::RenderGameObjects()
 {
-	for ( int i = 0; i < Game::gameObjectManager.Count(); i++ )
+	for ( int i = 0; i < MainGame::Game().GameObjectManager.Count(); i++ )
 	{
-		GameObject* gameObj = Game::gameObjectManager.GetGameObject( i );
+		GameObject* gameObj = MainGame::Game().GameObjectManager.GetGameObject( i );
 		
 		if ( gameObj == NULL )
 			continue;

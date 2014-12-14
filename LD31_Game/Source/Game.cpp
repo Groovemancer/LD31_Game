@@ -2,8 +2,9 @@
 
 SDL_Window* Game::window;
 SDL_Renderer* Game::renderer;
-ScreenManager Game::screenManager;
-GameObjectManager Game::gameObjectManager;
+
+ScreenManager Game::ScreenManager;
+GameObjectManager Game::GameObjectManager;
 
 bool Game::Initialize()
 {

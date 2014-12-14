@@ -21,7 +21,7 @@ public:
 	void RemoveGameObject( int id );
 	void RemoveAll();
 	GameObject* GetGameObject( int id );
-	std::vector< GameObject* > GetGameObjects();
+	std::vector< GameObject* > GetGameObjects() { return gameObjects; }
 
 	int Count() { return (int)gameObjects.size(); }
 };

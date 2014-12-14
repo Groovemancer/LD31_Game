@@ -5,6 +5,8 @@
 
 #include <SDL.h>
 #include "Tiles\Tile.h"
+#include "Helpers\Vector2f.h"
+#include <vector>
 
 class Level
 {
@@ -22,6 +24,10 @@ private:
 
 	// Whether or not the level was loaded
 	bool loaded;
+
+	std::vector< Vector2f > spawnPoints;
+
+	Vector2f FindOpenSpawnPoint();
 
 public:
 	Level();

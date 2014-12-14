@@ -14,6 +14,7 @@
 
 #include "Graphics\Texture.h"
 #include "Graphics\TextureManager.h"
+#include "Graphics\Animation.h"
 
 #include "Screens\Screen.h"
 #include "Screens\ScreenManager.h"

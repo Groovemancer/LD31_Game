@@ -23,8 +23,8 @@ Projectile::Projectile( GameObject* baseItem, Player* source, Texture* tex, Vect
 
 	ignoredObjects.insert( (Collidable*)source );
 
-	colRect.x = position.x;
-	colRect.y = position.y;
+	colRect.x = (int)position.x;
+	colRect.y = (int)position.y;
 	colRect.w = texture->getWidth();
 	colRect.h = texture->getHeight();
 
@@ -33,7 +33,7 @@ Projectile::Projectile( GameObject* baseItem, Player* source, Texture* tex, Vect
 
 void Projectile::Collision()
 {
-	Game::gameObjectManager.SafelyRemoveObject( id );
+	Game::GameObjectManager.SafelyRemoveObject( id );
 	// TODO: When it collides with somthing, kill the projectile and place a "Weapon Pickup" on the ground
 }
 
