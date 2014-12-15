@@ -44,22 +44,22 @@ private:
 
 	std::map< PlayerState, Animation* > animations;
 	
-	const float BASE_MOVE_SPEED = 5.0f;
-	const float BASE_JUMP_HEIGHT = 128.0f;
-	const float GRAVITY = 5.0f;
-	const float DODGE_DURATION = 0.5f; // 0.5 second duration
-	const float DODGE_COOLDOWN = 5.0f; // 5 second cooldown
-	const float THROW_DURATION = 0.1f;
-
 	void SetAnimations();
 
+	void Move( bool moveLeft );
 	void Jump();
 	void Throw();
 	void Dodge();
 	void Catch();
 
 public:
-	//
+	static const float BASE_MOVE_SPEED; // 5.0
+	static const float BASE_JUMP_HEIGHT; // 128.0
+	static const float GRAVITY; // 5.0
+	static const float DODGE_DURATION; // 0.5 second duration
+	static const float DODGE_COOLDOWN; // 5 second cooldown
+	static const float THROW_DURATION; // 0.1
+
 	Player( Level* level, int playerColor, PlayerInput playerInput, Vector2f spawnPosition );
 
 	void Update( float elapsedTime );
@@ -68,6 +68,8 @@ public:
 	void Collision();
 
 	bool IsGrounded();
+
+	void ChangeState( PlayerState state );
 
 	void Render();
 };

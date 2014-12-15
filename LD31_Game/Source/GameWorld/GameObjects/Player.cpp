@@ -1,5 +1,12 @@
 #include "Base.h"
 
+const float Player::BASE_MOVE_SPEED = 5.0f;
+const float Player::BASE_JUMP_HEIGHT = 128.0f;
+const float Player::GRAVITY = 5.0f;
+const float Player::DODGE_DURATION = 0.5f;
+const float Player::DODGE_COOLDOWN = 5.0f;
+const float Player::THROW_DURATION = 0.1f;
+
 Player::Player( Level* level, int playerColor, PlayerInput playerInput, Vector2f spawnPosition )
 	: Collidable( true )
 {
@@ -14,11 +21,6 @@ Player::Player( Level* level, int playerColor, PlayerInput playerInput, Vector2f
 	moveSpeed = BASE_MOVE_SPEED;
 	jumpHeight = BASE_JUMP_HEIGHT;
 	
-	colRect.x = (int)position.x + (texture->getWidth() / 4);
-	colRect.y = (int)position.y;
-	colRect.w = texture->getWidth() / 2;
-	colRect.h = texture->getHeight();
-
 	playerState = IDLE;
 
 	dodgeTimer = 0.0f;
@@ -30,6 +32,10 @@ Player::Player( Level* level, int playerColor, PlayerInput playerInput, Vector2f
 	initialized = false;
 
 	SetAnimations();
+
+	UpdateRect();
+
+	animations[ playerState ]->Play();
 }
 
 void Player::SetAnimations()
@@ -101,13 +107,29 @@ void Player::SetAnimations()
 
 void Player::Update( float elapsedTime )
 {
+	// Get user input
 	UpdateInput( elapsedTime );
 
-	velocity.x = moveDir.x * moveSpeed;
-	
+	// Update position based on velocity
+	velocity.x = moveDir.x * moveSpeed;	
 	velocity.y += GRAVITY;
-
 	position += velocity * elapsedTime;
+
+	if ( playerState == JUMP && IsGrounded() )
+	{
+		ChangeState( IDLE );
+	}
+
+	if ( playerState == DODGE )
+	{
+		dodgeTimer -= elapsedTime;
+
+		if ( dodgeTimer <= 0 )
+			ChangeState( IDLE );
+	}
+
+	// Update collision rectangle
+	UpdateRect();
 }
 
 void Player::UpdateInput( float elapsedTime )
@@ -124,42 +146,42 @@ void Player::UpdateInput( float elapsedTime )
 	if ( playerInput == KEYBOARD1 )
 	{
 		// Left
-		if ( InputManager::IsKeyHeld( Key::KEY_a ) )
+		if ( InputManager::IsKeyHeld( KEY_a ) )
 			moveLeft = true;
 		// Right
-		else if ( InputManager::IsKeyHeld( Key::KEY_d ) )
+		else if ( InputManager::IsKeyHeld( KEY_d ) )
 			moveRight = true;
 
 		// Up
-		if ( InputManager::IsKeyHeld( Key::KEY_w ) )
+		if ( InputManager::IsKeyHeld( KEY_w ) )
 			moveUp = true;
 		// Down
-		else if ( InputManager::IsKeyHeld( Key::KEY_s ) )
+		else if ( InputManager::IsKeyHeld( KEY_s ) )
 			moveDown = true;
 		
 		// Jump
-		if ( InputManager::IsKeyHeld( Key::KEY_SPACE ) )
+		if ( InputManager::IsKeyHeld( KEY_SPACE ) )
 			jump = true;
 		// Throw
-		else if ( InputManager::IsKeyDown( Key::KEY_f ) )
+		else if ( InputManager::IsKeyDown( KEY_f ) )
 			throwing = true;
 		// Dodge
-		else if ( InputManager::IsKeyDown( Key::KEY_q ) )
+		else if ( InputManager::IsKeyDown( KEY_q ) )
 			dodge = true;
 		// Catch
-		else if ( InputManager::IsKeyDown( Key::KEY_e ) )
+		else if ( InputManager::IsKeyDown( KEY_e ) )
 			catching = true;
 	}
 
 	if ( moveLeft )
 	{
-		moveDir.x = -1.0f;
-		facingLeft = true;
+		// True for moving left
+		Move( true );
 	}
 	else if ( moveRight )
 	{
-		moveDir.x = 1.0f;
-		facingLeft = false;
+		// False for moving right
+		Move( false );
 	}
 
 	if ( moveUp )
@@ -189,11 +211,48 @@ void Player::UpdateInput( float elapsedTime )
 	}
 }
 
+void Player::UpdateRect()
+{
+	Texture* tex = animations[ playerState ]->GetCurrentFrame();
+	colRect.x = (int)position.x + ( tex->getWidth() / 4 );
+	colRect.y = (int)position.y;
+	colRect.w = tex->getWidth() / 2;
+	colRect.h = tex->getHeight();
+}
+
+void Player::Move( bool moveLeft )
+{
+	if ( playerState != THROW && playerState != DODGE && playerState != DEAD && playerState != HIT )
+	{
+		if ( moveLeft )
+		{
+			moveDir.x = -1.0f;
+			facingLeft = true;
+			if ( playerState != JUMP )
+			{
+				ChangeState( MOVE );
+			}
+		}
+		else if ( !moveLeft )
+		{
+			moveDir.x = 1.0f;
+			facingLeft = false;
+			if ( playerState != JUMP )
+			{
+				ChangeState( MOVE );
+			}
+		}
+	}
+}
+
 void Player::Jump()
 {
 	if ( IsGrounded() && (playerState == IDLE || playerState == MOVE) )
 	{
+		// Adding a negative value to the y axis moves the player towards
+		// the top of the screen.
 		velocity.y = -BASE_JUMP_HEIGHT;
+		ChangeState( JUMP );
 	}
 }
 
@@ -207,7 +266,8 @@ void Player::Dodge()
 	{
 		if ( dodgeCooldown <= 0 && dodgeTimer <= 0 )
 		{
-
+			dodgeTimer = DODGE_DURATION;
+			ChangeState( DODGE );
 		}
 	}
 }
@@ -243,4 +303,36 @@ bool Player::IsGrounded()
 	}
 
 	return grounded;
+}
+
+void Player::Render()
+{
+	Texture* currentFrame = animations[ playerState ]->GetCurrentFrame();
+
+	SDL_RendererFlip flip = SDL_FLIP_NONE;
+	if ( facingLeft )
+		flip = SDL_FLIP_HORIZONTAL;
+	currentFrame->render( (int)position.x, (int)position.y, NULL, 0, NULL, flip );
+}
+
+void Player::ChangeState( PlayerState state )
+{
+	playerState = state;
+
+	for ( std::map< PlayerState, Animation* >::iterator itr = animations.begin(); itr != animations.end(); itr++ )
+	{
+		if ( itr->first != state )
+		{
+			animations[ itr->first ]->Stop();
+		}
+		else
+		{
+			animations[ itr->first ]->Play();
+		}
+	}
+}
+
+void Player::Collision()
+{
+	// TODO: Anything specific to a player colliding with something?
 }

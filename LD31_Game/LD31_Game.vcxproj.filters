@@ -350,5 +350,35 @@
     <None Include="Resources\Textures\Level01_background.png">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Dead.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Dodge.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Dying.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Idle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Jump_1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Jump_2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Throw.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Walk_1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Walk_2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Resources\Textures\Characters\$Templates\Char_Template_Wind.png">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -1,5 +1,8 @@
 #include "Base.h"
 
+const float Animation::FRAMES_PER_SECOND = 24.0f;
+const float Animation::FRAME_RATE = Animation::FRAMES_PER_SECOND / 1000.0f;
+
 Animation::Animation( std::vector< std::string > textureIds, bool loop )
 {
 	Animation::textureIds = textureIds;
@@ -26,7 +29,7 @@ void Animation::Update( float elapsedTime )
 			if ( loop )
 				frameCounter = 0;
 			else
-				frameCounter = textureIds.size() - 1;
+				frameCounter = (float)( textureIds.size() - 1 );
 		}
 	}
 }

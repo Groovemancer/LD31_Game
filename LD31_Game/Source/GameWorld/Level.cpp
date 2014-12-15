@@ -143,8 +143,8 @@ void Level::InsertCharTile( int x, int y, char charTile )
 	{
 		// Create a spawn point and it add it to the list of spawn points
 		Vector2f spawn = Vector2f::Zero();
-		spawn.x = x * Tile::WIDTH;
-		spawn.y = y * Tile::HEIGHT;
+		spawn.x = (float)( x * Tile::WIDTH );
+		spawn.y = (float)( y * Tile::HEIGHT );
 		spawnPoints.push_back( spawn );
 	}
 }
@@ -163,7 +163,8 @@ void Level::ResetTiles()
 
 Vector2f Level::FindOpenSpawnPoint()
 {
-
+	// TODO: We need to find an open spawn point for players to spawn in
+	return Vector2f::Zero();
 }
 
 Texture* Level::GetBackgroundTexture()

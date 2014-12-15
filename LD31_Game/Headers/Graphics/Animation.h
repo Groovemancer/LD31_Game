@@ -20,8 +20,8 @@ private:
 
 	float frameCounter;
 
-	const float FRAMES_PER_SECOND = 24.0f;
-	const float FRAME_RATE = FRAMES_PER_SECOND / 1000.0f;
+	static const float FRAMES_PER_SECOND; // 24.0 fps
+	static const float FRAME_RATE; // fps / 1000
 
 public:
 	Animation( std::vector< std::string > textureIds, bool loop = false );
