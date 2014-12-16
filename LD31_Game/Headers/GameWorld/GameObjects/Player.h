@@ -61,6 +61,7 @@ public:
 	static const float THROW_DURATION; // 0.1
 
 	Player( Level* level, int playerColor, PlayerInput playerInput, Vector2f spawnPosition );
+	~Player();
 
 	void Update( float elapsedTime );
 	void UpdateInput( float elapsedTime );

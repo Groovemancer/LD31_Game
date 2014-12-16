@@ -1,7 +1,7 @@
 #include "Base.h"
 
-const float Player::BASE_MOVE_SPEED = 5.0f;
-const float Player::BASE_JUMP_HEIGHT = 128.0f;
+const float Player::BASE_MOVE_SPEED = 128.0f;
+const float Player::BASE_JUMP_HEIGHT = 256.0f;
 const float Player::GRAVITY = 5.0f;
 const float Player::DODGE_DURATION = 0.5f;
 const float Player::DODGE_COOLDOWN = 5.0f;
@@ -36,6 +36,15 @@ Player::Player( Level* level, int playerColor, PlayerInput playerInput, Vector2f
 	UpdateRect();
 
 	animations[ playerState ]->Play();
+}
+
+Player::~Player()
+{
+	for ( std::map< PlayerState, Animation* >::iterator itr = animations.begin(); itr != animations.end(); itr++ )
+	{
+		delete itr->second;
+	}
+	animations.clear();
 }
 
 void Player::SetAnimations()
@@ -111,13 +120,19 @@ void Player::Update( float elapsedTime )
 	UpdateInput( elapsedTime );
 
 	// Update position based on velocity
-	velocity.x = moveDir.x * moveSpeed;	
-	velocity.y += GRAVITY;
+	velocity.x = moveDir.x * moveSpeed;
+	if ( !IsGrounded() )
+		velocity.y += GRAVITY;
 	position += velocity * elapsedTime;
 
-	if ( playerState == JUMP && IsGrounded() )
+	// Update collision rectangle
+	UpdateRect();
+
+	if ( IsGrounded() && playerState == JUMP )
 	{
 		ChangeState( IDLE );
+		velocity.y = 0;
+		velocity.x = 0;
 	}
 
 	if ( playerState == DODGE )
@@ -128,8 +143,7 @@ void Player::Update( float elapsedTime )
 			ChangeState( IDLE );
 	}
 
-	// Update collision rectangle
-	UpdateRect();
+	animations[ playerState ]->Update( elapsedTime );
 }
 
 void Player::UpdateInput( float elapsedTime )
@@ -183,6 +197,10 @@ void Player::UpdateInput( float elapsedTime )
 		// False for moving right
 		Move( false );
 	}
+	else
+	{
+		moveDir.x = 0;
+	}
 
 	if ( moveUp )
 	{
@@ -213,11 +231,15 @@ void Player::UpdateInput( float elapsedTime )
 
 void Player::UpdateRect()
 {
+	std::stringstream str;
 	Texture* tex = animations[ playerState ]->GetCurrentFrame();
-	colRect.x = (int)position.x + ( tex->getWidth() / 4 );
-	colRect.y = (int)position.y;
-	colRect.w = tex->getWidth() / 2;
-	colRect.h = tex->getHeight();
+	colRect.x = 6;
+	colRect.y = 0;
+	colRect.w = 24;
+	colRect.h = 48;
+
+	//str << "X: " << colRect.x << ", Y: " << colRect.y << ", W: " << colRect.w << ", H: " << colRect.h << "\n";
+	OutputDebugString( str.str().c_str() );
 }
 
 void Player::Move( bool moveLeft )
@@ -281,6 +303,10 @@ bool Player::IsGrounded()
 	// Convert player's position to tile position, shifted down to the bottom of their feet
 	int tileX = (int)( position.x / Tile::WIDTH );
 	int tileY = (int)( ( position.y + colRect.h ) / Tile::HEIGHT );
+
+	std::stringstream str;
+	str << "TileX: " << tileX << ", TileY: " << tileY << "\n";
+	OutputDebugString( str.str().c_str() );
 
 	bool grounded = false;
 

@@ -8,6 +8,9 @@ GameScreen::GameScreen()
 
 	level = new Level();
 	level->LoadLevel( "Resources/Levels/level_01.lvl" );
+
+	Player* player = new Player( level, 1, KEYBOARD1, Vector2f( 48, 192 ) );
+	Game::GameObjectManager.AddGameObject( player );
 }
 
 GameScreen::~GameScreen()
@@ -46,7 +49,7 @@ void GameScreen::Update( float elapsedTime )
 					// Collide with other game object
 					if ( Collidable::CheckCollision( col->GetColRect(), col2->GetColRect() ) )
 					{
-						OutputDebugString( "Collision!\n" );
+						//OutputDebugString( "Collision!\n" );
 					}
 				}
 			}
@@ -58,7 +61,7 @@ void GameScreen::Update( float elapsedTime )
 			int colTileY = col->GetColRect().y / Tile::HEIGHT;
 
 			std::stringstream str;
-			str << "Tile X: " << colTileX << ", Y: " << colTileY << ", W: " << col->GetColRect().w << ", H: " << col->GetColRect().h << "\n";
+			//str << "Tile X: " << colTileX << ", Y: " << colTileY << ", W: " << col->GetColRect().w << ", H: " << col->GetColRect().h << "\n";
 			OutputDebugString( str.str().c_str() );
 			
 			// Grabs the tile that the object is touching
@@ -71,7 +74,7 @@ void GameScreen::Update( float elapsedTime )
 				tileRect.y = colTileY * Tile::HEIGHT;
 				if ( Collidable::CheckCollision( col->GetColRect(), tileRect ) )
 				{
-					OutputDebugString( "Collided with tile!\n" );
+					//OutputDebugString( "Collided with tile!\n" );
 					col->Collision();
 				}
 			}
